@@ -30,7 +30,6 @@
         {
             this.listTasks = new System.Windows.Forms.ListView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnDel = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -41,6 +40,7 @@
             this.textDesc = new System.Windows.Forms.TextBox();
             this.textName = new System.Windows.Forms.TextBox();
             this.dateStart = new System.Windows.Forms.DateTimePicker();
+            this.btnDel = new System.Windows.Forms.Button();
             this.btnLoad = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -59,7 +59,7 @@
             // listTasks
             // 
             this.listTasks.HideSelection = false;
-            this.listTasks.Location = new System.Drawing.Point(12, 44);
+            this.listTasks.Location = new System.Drawing.Point(335, 41);
             this.listTasks.Name = "listTasks";
             this.listTasks.Size = new System.Drawing.Size(168, 375);
             this.listTasks.TabIndex = 0;
@@ -69,7 +69,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnDel);
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
@@ -80,23 +79,10 @@
             this.panel1.Controls.Add(this.textDesc);
             this.panel1.Controls.Add(this.textName);
             this.panel1.Controls.Add(this.dateStart);
-            this.panel1.Location = new System.Drawing.Point(231, 44);
+            this.panel1.Location = new System.Drawing.Point(12, 44);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(306, 331);
             this.panel1.TabIndex = 1;
-            // 
-            // btnDel
-            // 
-            this.btnDel.BackColor = System.Drawing.Color.Red;
-            this.btnDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDel.ForeColor = System.Drawing.Color.White;
-            this.btnDel.Location = new System.Drawing.Point(164, 276);
-            this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(139, 38);
-            this.btnDel.TabIndex = 10;
-            this.btnDel.Text = "Удалить";
-            this.btnDel.UseVisualStyleBackColor = false;
-            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // btnAdd
             // 
@@ -190,12 +176,25 @@
             this.dateStart.Size = new System.Drawing.Size(200, 20);
             this.dateStart.TabIndex = 0;
             // 
+            // btnDel
+            // 
+            this.btnDel.BackColor = System.Drawing.Color.Red;
+            this.btnDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDel.ForeColor = System.Drawing.Color.White;
+            this.btnDel.Location = new System.Drawing.Point(509, 371);
+            this.btnDel.Name = "btnDel";
+            this.btnDel.Size = new System.Drawing.Size(268, 45);
+            this.btnDel.TabIndex = 10;
+            this.btnDel.Text = "Удалить";
+            this.btnDel.UseVisualStyleBackColor = false;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
+            // 
             // btnLoad
             // 
             this.btnLoad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLoad.ForeColor = System.Drawing.Color.White;
-            this.btnLoad.Location = new System.Drawing.Point(231, 381);
+            this.btnLoad.Location = new System.Drawing.Point(12, 378);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(139, 38);
             this.btnLoad.TabIndex = 2;
@@ -208,7 +207,7 @@
             this.btnSave.BackColor = System.Drawing.Color.Red;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(398, 381);
+            this.btnSave.Location = new System.Drawing.Point(176, 378);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(139, 38);
             this.btnSave.TabIndex = 3;
@@ -220,7 +219,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(39, 17);
+            this.label1.Location = new System.Drawing.Point(331, 14);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(113, 24);
             this.label1.TabIndex = 4;
@@ -230,7 +229,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(237, 17);
+            this.label2.Location = new System.Drawing.Point(12, 17);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(101, 24);
             this.label2.TabIndex = 5;
@@ -238,6 +237,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -246,11 +246,12 @@
             this.Column3,
             this.Column4,
             this.Column5});
-            this.dataGridView1.Location = new System.Drawing.Point(588, 44);
+            this.dataGridView1.Location = new System.Drawing.Point(509, 44);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(575, 230);
+            this.dataGridView1.Size = new System.Drawing.Size(575, 313);
             this.dataGridView1.TabIndex = 6;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
             // 
             // Column1
@@ -282,19 +283,21 @@
             // 
             // changeBtn
             // 
-            this.changeBtn.Location = new System.Drawing.Point(685, 320);
+            this.changeBtn.BackColor = System.Drawing.Color.Yellow;
+            this.changeBtn.Location = new System.Drawing.Point(808, 371);
             this.changeBtn.Name = "changeBtn";
-            this.changeBtn.Size = new System.Drawing.Size(425, 84);
+            this.changeBtn.Size = new System.Drawing.Size(268, 45);
             this.changeBtn.TabIndex = 7;
             this.changeBtn.Text = "Изменить";
-            this.changeBtn.UseVisualStyleBackColor = true;
+            this.changeBtn.UseVisualStyleBackColor = false;
             this.changeBtn.Click += new System.EventHandler(this.changeBtn_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1400, 428);
+            this.ClientSize = new System.Drawing.Size(1088, 428);
+            this.Controls.Add(this.btnDel);
             this.Controls.Add(this.changeBtn);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label2);
