@@ -35,7 +35,7 @@ namespace TaskManagerV2
         {
             FormBorderStyle = FormBorderStyle.FixedSingle;
         }
-        // добавление элемента в listTasks
+        
         private void Add(Task task)
         {
             ListViewItem lvi = new ListViewItem(task.TaskName);
@@ -62,7 +62,7 @@ namespace TaskManagerV2
                 Add(task);
                 ClearInput();
             }
-
+            dataGridView1.ClearSelection();
         }
         string fileName = System.IO.Path.Combine(Environment.CurrentDirectory, "information.xml");
         private void SerializeXML(Tasks tasks)
@@ -166,12 +166,6 @@ namespace TaskManagerV2
 
             foreach (Task task1 in tasks.TaskList)
             {
-                int n = dataGridView1.Rows.Add();
-                dataGridView1.Rows[n].Cells[0].Value = task1.TaskName;
-                dataGridView1.Rows[n].Cells[1].Value = task1.TaskDescription;
-                dataGridView1.Rows[n].Cells[2].Value = task1.DateStart;
-                dataGridView1.Rows[n].Cells[3].Value = task1.DateEnd;
-                dataGridView1.Rows[n].Cells[4].Value = task1.Done;
                 Add(task1);
             }
             dataGridView1.Rows[id].Selected = true;
@@ -205,9 +199,6 @@ namespace TaskManagerV2
             doneCheckbox.Checked = (bool)dataGridView1.SelectedRows[0].Cells[4].Value;
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
-        }
     }
 }
