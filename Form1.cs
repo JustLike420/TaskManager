@@ -147,29 +147,37 @@ namespace TaskManagerV2
         private void changeBtn_Click(object sender, EventArgs e)
         {
             Task task = new Task(textName.Text, textDesc.Text, dateStart.Value, dateEnd.Value, doneCheckbox.Checked);
-            listTasks.SelectedItems[0].Tag = task;
-            int id = listTasks.SelectedItems[0].Index;
-            
-            Tasks tasks = new Tasks();
-            foreach (ListViewItem item in listTasks.Items)
+            try
             {
-                if (item.Tag != null)
-                {
-                    tasks.TaskList.Add((Task)item.Tag);
-                }
-            }
-            SerializeXML(tasks);
-            listTasks.Clear();
-            dataGridView1.Rows.Clear();
-            ClearInput();
-            tasks = DeserializeXML();
+                listTasks.SelectedItems[0].Tag = task;
+                int id = listTasks.SelectedItems[0].Index;
 
-            foreach (Task task1 in tasks.TaskList)
-            {
-                Add(task1);
+                Tasks tasks = new Tasks();
+                foreach (ListViewItem item in listTasks.Items)
+                {
+                    if (item.Tag != null)
+                    {
+                        tasks.TaskList.Add((Task)item.Tag);
+                    }
+                }
+                SerializeXML(tasks);
+                listTasks.Clear();
+                dataGridView1.Rows.Clear();
+                ClearInput();
+                tasks = DeserializeXML();
+
+                foreach (Task task1 in tasks.TaskList)
+                {
+                    Add(task1);
+                }
+                dataGridView1.Rows[id].Selected = true;
+                listTasks.Items[id].Selected = true;
             }
-            dataGridView1.Rows[id].Selected = true;
-            listTasks.Items[id].Selected = true;
+            catch (System.ArgumentOutOfRangeException)
+            {
+
+                MessageBox.Show("Выберите данные");
+            }
         }
 
         private void btnDel_Click(object sender, EventArgs e)
