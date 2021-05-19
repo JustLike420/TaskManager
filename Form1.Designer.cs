@@ -31,6 +31,8 @@
             this.listTasks = new System.Windows.Forms.ListView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.changeBtn = new System.Windows.Forms.Button();
+            this.btnDel = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -40,20 +42,18 @@
             this.textDesc = new System.Windows.Forms.TextBox();
             this.textName = new System.Windows.Forms.TextBox();
             this.dateStart = new System.Windows.Forms.DateTimePicker();
-            this.btnDel = new System.Windows.Forms.Button();
             this.btnLoad = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.changeBtn = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -101,6 +101,34 @@
             this.btnAdd.Text = "Добавить";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // changeBtn
+            // 
+            this.changeBtn.BackColor = System.Drawing.Color.Orange;
+            this.changeBtn.FlatAppearance.BorderSize = 0;
+            this.changeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.changeBtn.ForeColor = System.Drawing.Color.White;
+            this.changeBtn.Location = new System.Drawing.Point(164, 280);
+            this.changeBtn.Name = "changeBtn";
+            this.changeBtn.Size = new System.Drawing.Size(139, 45);
+            this.changeBtn.TabIndex = 7;
+            this.changeBtn.Text = "Изменить";
+            this.changeBtn.UseVisualStyleBackColor = false;
+            this.changeBtn.Click += new System.EventHandler(this.changeBtn_Click);
+            // 
+            // btnDel
+            // 
+            this.btnDel.BackColor = System.Drawing.Color.Red;
+            this.btnDel.FlatAppearance.BorderSize = 0;
+            this.btnDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDel.ForeColor = System.Drawing.Color.White;
+            this.btnDel.Location = new System.Drawing.Point(10, 280);
+            this.btnDel.Name = "btnDel";
+            this.btnDel.Size = new System.Drawing.Size(139, 45);
+            this.btnDel.TabIndex = 10;
+            this.btnDel.Text = "Удалить";
+            this.btnDel.UseVisualStyleBackColor = false;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // label6
             // 
@@ -181,20 +209,6 @@
             this.dateStart.Size = new System.Drawing.Size(200, 20);
             this.dateStart.TabIndex = 0;
             // 
-            // btnDel
-            // 
-            this.btnDel.BackColor = System.Drawing.Color.Red;
-            this.btnDel.FlatAppearance.BorderSize = 0;
-            this.btnDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDel.ForeColor = System.Drawing.Color.White;
-            this.btnDel.Location = new System.Drawing.Point(10, 280);
-            this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(139, 45);
-            this.btnDel.TabIndex = 10;
-            this.btnDel.Text = "Удалить";
-            this.btnDel.UseVisualStyleBackColor = false;
-            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
-            // 
             // btnLoad
             // 
             this.btnLoad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
@@ -259,40 +273,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(556, 281);
             this.dataGridView1.TabIndex = 6;
-            // 
-            // changeBtn
-            // 
-            this.changeBtn.BackColor = System.Drawing.Color.Orange;
-            this.changeBtn.FlatAppearance.BorderSize = 0;
-            this.changeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.changeBtn.ForeColor = System.Drawing.Color.White;
-            this.changeBtn.Location = new System.Drawing.Point(164, 280);
-            this.changeBtn.Name = "changeBtn";
-            this.changeBtn.Size = new System.Drawing.Size(139, 45);
-            this.changeBtn.TabIndex = 7;
-            this.changeBtn.Text = "Изменить";
-            this.changeBtn.UseVisualStyleBackColor = false;
-            this.changeBtn.Click += new System.EventHandler(this.changeBtn_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial Black", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(103, 14);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(119, 27);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Изменить";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("AXIS Extra Bold", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(509, 333);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(265, 36);
-            this.label8.TabIndex = 12;
-            this.label8.Text = "TaskManager";
+            this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             // 
             // Column1
             // 
@@ -323,6 +304,26 @@
             this.Column5.MinimumWidth = 2;
             this.Column5.Name = "Column5";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial Black", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(103, 14);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(119, 27);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Изменить";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("AXIS Extra Bold", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(509, 333);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(265, 36);
+            this.label8.TabIndex = 12;
+            this.label8.Text = "TaskManager";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -340,7 +341,7 @@
             this.Controls.Add(this.listTasks);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "TaskManager";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

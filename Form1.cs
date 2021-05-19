@@ -194,10 +194,12 @@ namespace TaskManagerV2
             }
         }
 
-        private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
+
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             listTasks.SelectedItems.Clear();
             int id = dataGridView1.CurrentRow.Index;
+            Console.Write(id);
             listTasks.Items[id].Selected = true;
 
             textName.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
@@ -206,7 +208,5 @@ namespace TaskManagerV2
             dateEnd.Value = (DateTime)dataGridView1.SelectedRows[0].Cells[3].Value;
             doneCheckbox.Checked = (bool)dataGridView1.SelectedRows[0].Cells[4].Value;
         }
-
-
     }
 }
