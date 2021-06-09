@@ -279,23 +279,27 @@
             // 
             this.Column1.HeaderText = "Название";
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Описание";
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             this.Column2.Width = 82;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Дата создания";
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             this.Column3.Width = 115;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Дата конца";
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             this.Column4.Width = 115;
             // 
             // Column5
@@ -303,24 +307,25 @@
             this.Column5.HeaderText = "Выполнено";
             this.Column5.MinimumWidth = 2;
             this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial Black", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(103, 14);
+            this.label7.Location = new System.Drawing.Point(51, 14);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(119, 27);
+            this.label7.Size = new System.Drawing.Size(226, 27);
             this.label7.TabIndex = 11;
-            this.label7.Text = "Изменить";
+            this.label7.Text = "Изменить/Добавить";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("AXIS Extra Bold", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(509, 333);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(265, 36);
+            this.label8.Size = new System.Drawing.Size(207, 36);
             this.label8.TabIndex = 12;
             this.label8.Text = "TaskManager";
             // 

@@ -14,14 +14,13 @@ namespace TaskManagerV2
 {
     public partial class Form1 : Form
     {
-
         public Form1()
         {
             InitializeComponent();
             ClearInput();
         }
 
-        private void ClearInput()
+        private void ClearInput() // очисткая полей ввода
         {
             textName.Text = string.Empty;
             textDesc.Text = string.Empty;
@@ -31,17 +30,18 @@ namespace TaskManagerV2
 
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e) 
         {
             FormBorderStyle = FormBorderStyle.FixedSingle;
         }
         
-        private void Add(Task task)
+        private void Add(Task task) // добавление информации из полей в ListView и DataGrid
         {
             ListViewItem lvi = new ListViewItem(task.TaskName);
             lvi.Tag = task;
             listTasks.Items.Add(lvi);
             int n = dataGridView1.Rows.Add();
+      
             dataGridView1.Rows[n].Cells[0].Value = task.TaskName;
             dataGridView1.Rows[n].Cells[1].Value = task.TaskDescription;
             dataGridView1.Rows[n].Cells[2].Value = task.DateStart;
@@ -50,7 +50,7 @@ namespace TaskManagerV2
 
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e) // функционал нажатия кнопки "Добавить"
         {
             Task task = new Task(textName.Text, textDesc.Text, dateStart.Value, dateEnd.Value, doneCheckbox.Checked);
             if (task.TaskName == "" || task.TaskDescription == "")
@@ -64,8 +64,8 @@ namespace TaskManagerV2
             }
             dataGridView1.ClearSelection();
         }
-        string fileName = System.IO.Path.Combine(Environment.CurrentDirectory, "information.xml");
-        private void SerializeXML(Tasks tasks)
+        string fileName = System.IO.Path.Combine(Environment.CurrentDirectory, "information.xml"); // путь проекта
+        private void SerializeXML(Tasks tasks) // сохранение информации через сериализацию XML
         {
             XmlSerializer xml = new XmlSerializer(typeof(Tasks));
             using (FileStream fs = new FileStream(fileName, FileMode.Create))
@@ -74,7 +74,7 @@ namespace TaskManagerV2
             }
         }
 
-        private Tasks DeserializeXML()
+        private Tasks DeserializeXML() // загрузка информации через десериализацию XML
         {
             XmlSerializer xml = new XmlSerializer(typeof(Tasks));
             Tasks tasks = new Tasks();
@@ -86,14 +86,14 @@ namespace TaskManagerV2
                     return tasks;
                 }
             }
-            catch (System.IO.FileNotFoundException)
+            catch (System.IO.FileNotFoundException) // файл не найден
             {
                 MessageBox.Show("Сохранненых данных нет");
                 return tasks;
             }
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e) // кнопка "Сохранить данные"
         {
             Tasks tasks = new Tasks();
             foreach (ListViewItem item in listTasks.Items)
@@ -106,7 +106,7 @@ namespace TaskManagerV2
             SerializeXML(tasks);
         }
 
-        private void btnLoad_Click(object sender, EventArgs e)
+        private void btnLoad_Click(object sender, EventArgs e) // кнопка "Загрузка данных"
         {
             listTasks.Clear();
             dataGridView1.Rows.Clear();
@@ -114,13 +114,11 @@ namespace TaskManagerV2
             Tasks tasks = DeserializeXML();
             foreach (Task task in tasks.TaskList)
             {
-                
                 Add(task);
             }
             dataGridView1.ClearSelection();
         }
-
-        private void listTasks_SelectedIndexChanged(object sender, EventArgs e)
+        private void listTasks_SelectedIndexChanged(object sender, EventArgs e) // при выобре строки в ListView заполняется DataGrid
         {
             if (listTasks.SelectedItems.Count == 1)
             {
@@ -144,7 +142,7 @@ namespace TaskManagerV2
             }
         }
 
-        private void changeBtn_Click(object sender, EventArgs e)
+        private void changeBtn_Click(object sender, EventArgs e) // кнопка "изменить"
         {
             Task task = new Task(textName.Text, textDesc.Text, dateStart.Value, dateEnd.Value, doneCheckbox.Checked);
             try
@@ -173,14 +171,14 @@ namespace TaskManagerV2
                 dataGridView1.Rows[id].Selected = true;
                 listTasks.Items[id].Selected = true;
             }
-            catch (System.ArgumentOutOfRangeException)
+            catch (System.ArgumentOutOfRangeException) // не выбрана строка
             {
 
                 MessageBox.Show("Выберите данные");
             }
         }
 
-        private void btnDel_Click(object sender, EventArgs e)
+        private void btnDel_Click(object sender, EventArgs e) // кнопка удаления
         {
             try
             {
@@ -195,11 +193,10 @@ namespace TaskManagerV2
         }
 
 
-        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e) // выбор строки в DataGrid
         {
             listTasks.SelectedItems.Clear();
             int id = dataGridView1.CurrentRow.Index;
-            Console.Write(id);
             listTasks.Items[id].Selected = true;
 
             textName.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
@@ -208,5 +205,6 @@ namespace TaskManagerV2
             dateEnd.Value = (DateTime)dataGridView1.SelectedRows[0].Cells[3].Value;
             doneCheckbox.Checked = (bool)dataGridView1.SelectedRows[0].Cells[4].Value;
         }
+
     }
 }

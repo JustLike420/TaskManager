@@ -15,13 +15,13 @@ namespace TaskManagerV2
     [Serializable]
     public class Task
     {
-        public string TaskName { get; set; }
+        public string TaskName;  // автосвойства get возвращаем/set устанавливаем
         public string TaskDescription { get; set; }
         public DateTime DateStart { get; set; }
         public DateTime DateEnd { get; set; }
         public Boolean Done { get; set; }
-        public Task() { }  // для сериализации нужен конструктор без параметров
-        public Task(string TaskName, string TaskDescription, DateTime DateStart, DateTime DateEnd, Boolean Done)
+    public Task() { }  // для сериализации нужен конструктор без параметров
+    public Task(string TaskName, string TaskDescription, DateTime DateStart, DateTime DateEnd, Boolean Done)
         {
             this.TaskName = TaskName;
             this.TaskDescription = TaskDescription;
